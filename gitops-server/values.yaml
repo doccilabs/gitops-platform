@@ -16,7 +16,7 @@ replicaCount: 2
 
 image:
   repository: 014276069644.dkr.ecr.ap-northeast-2.amazonaws.com/gitops-server
-  tag: latest
+  tag: 46d4ab08924d50a3bc13ae3135a0a1deaf23b9d7
   pullPolicy: IfNotPresent
 
 container:
