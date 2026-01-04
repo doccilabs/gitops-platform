@@ -11,7 +11,7 @@ podAnnotations: {}
 replicaCount: 3
 image:
   repository: 014276069644.dkr.ecr.ap-northeast-2.amazonaws.com/gitops-server
-  tag: 115b12860ef46c412b991b8b159c67166c63617a
+  tag: 2e477a80082ceae9311e67fa1519e3c2bbf6e33b
   pullPolicy: IfNotPresent
 container:
   port: 3000
