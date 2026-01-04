@@ -1,29 +1,21 @@
 name: gitops-server
 namespace: api
-
 labels:
   app.kubernetes.io/name: gitops-server
   app.kubernetes.io/component: api
   app.kubernetes.io/part-of: platform
   app.kubernetes.io/managed-by: helm
-
 podLabels: {}
-
 annotations: {}
 podAnnotations: {}
-
 replicaCount: 3
-
 image:
   repository: 014276069644.dkr.ecr.ap-northeast-2.amazonaws.com/gitops-server
-  tag: 46d4ab08924d50a3bc13ae3135a0a1deaf23b9d7
+  tag: 5e1c58b9ab6fab4eada560d342c1d6cc8e940c9c
   pullPolicy: IfNotPresent
-
 container:
   port: 3000
-
 env: []
-
 resources:
   requests:
     cpu: 1000m
@@ -31,7 +23,6 @@ resources:
   limits:
     cpu: 2000m
     memory: 4096Mi
-
 probes:
   enabled: true
   liveness:
@@ -42,14 +33,12 @@ probes:
     path: /health
     initialDelaySeconds: 10
     periodSeconds: 5
-
 service:
   enabled: true
   type: ClusterIP
   port: 80
   targetPort: 3000
   annotations: {}
-
 ingress:
   enabled: true
   className: alb
@@ -64,7 +53,6 @@ ingress:
       paths:
         - path: /
           pathType: Prefix
-
 hpa:
   enabled: true
   minReplicas: 3
