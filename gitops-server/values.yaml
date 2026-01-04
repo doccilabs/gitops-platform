@@ -49,7 +49,7 @@ ingress:
     alb.ingress.kubernetes.io/ssl-redirect: "443"
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:014276069644:certificate/8d55e897-f9fb-4ac5-a2ca-726392d4a95e
   hosts:
-    - host: api.brian-dev.click
+    - host: api2.brian-dev.click
       paths:
         - path: /
           pathType: Prefix
