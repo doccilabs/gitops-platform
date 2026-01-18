@@ -22,7 +22,7 @@ externalSecret:
   refreshInterval: 1m
   secretStoreRef:
     name: aws-secretsmanager
-    kind: SecretStore
+    kind: ClusterSecretStore
   target:
     name: api-example-env-secret
     creationPolicy: Owner
