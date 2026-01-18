@@ -11,7 +11,7 @@ podAnnotations: {}
 replicaCount: 3
 image:
   repository: 014276069644.dkr.ecr.ap-northeast-2.amazonaws.com/gitops-server
-  tag: a18354b1c6be4946baf52a990288982321900e19
+  tag: de92b15d1eeb64a75039f2a9ffa3947644bc1fbc
   pullPolicy: IfNotPresent
 container:
   port: 3000
@@ -30,7 +30,6 @@ externalSecret:
     - secretKey: .env
       remoteRef:
         key: arn:aws:secretsmanager:ap-northeast-2:014276069644:secret:example-env-bxjBMN
-
 envFileSecret:
   enabled: true
   secretName: api-example-env-secret
