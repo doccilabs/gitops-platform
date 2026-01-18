@@ -22,6 +22,12 @@ spec:
       annotations:
 {{ toYaml .Values.podAnnotations | nindent 8 }}
     spec:
+{{- if .Values.envFileSecret.enabled }}
+      volumes:
+        - name: envfile
+          secret:
+            secretName: {{ .Values.envFileSecret.secretName }}
+{{- end }}
       containers:
         - name: {{ .Values.name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -30,6 +36,13 @@ spec:
             - name: http
               containerPort: {{ .Values.container.port }}
               protocol: TCP
+{{- if .Values.envFileSecret.enabled }}
+          volumeMounts:
+            - name: envfile
+              mountPath: {{ .Values.envFileSecret.mountPath }}
+              subPath: {{ .Values.envFileSecret.key }}
+              readOnly: true
+{{- end }}
           env:
 {{ toYaml .Values.env | nindent 12 }}
           resources:

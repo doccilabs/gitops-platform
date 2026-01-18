@@ -16,6 +16,26 @@ image:
 container:
   port: 3000
 env: []
+externalSecret:
+  enabled: true
+  name: api-example-env
+  refreshInterval: 1m
+  secretStoreRef:
+    name: aws-secretsmanager
+    kind: SecretStore
+  target:
+    name: api-example-env-secret
+    creationPolicy: Owner
+  data:
+    - secretKey: .env
+      remoteRef:
+        key: arn:aws:secretsmanager:ap-northeast-2:014276069644:secret:example-env-bxjBMN
+
+envFileSecret:
+  enabled: true
+  secretName: api-example-env-secret
+  key: .env
+  mountPath: /app/.env
 resources:
   requests:
     cpu: 500m
